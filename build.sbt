@@ -7,8 +7,5 @@ ThisBuild / organizationName := "example"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "Project Euler Speedrun",
-    libraryDependencies += scalaTest % Test
+    name := "Project Euler Speedrun"
   )
-
-// See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.
