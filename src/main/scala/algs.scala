@@ -1,5 +1,20 @@
 package object algs {
 
+  def primesUntil(n: Int): Seq[Int] = {
+    val prime = Array.fill[Boolean](n)(true)
+
+    for {
+      m <- 2 until math.floor(math.sqrt(n)).toInt
+      k <- m*2 until n by m if prime(k)
+    } {
+      prime(k) = false
+    }
+
+    prime.zipWithIndex.drop(2).collect {
+      case (isPrime, i) if isPrime => i
+    }
+  }
+
   def erastothenes: LazyList[Int] = {
     def merge(left: LazyList[Int], right: LazyList[Int]): LazyList[Int] = {
       (left, right) match {
