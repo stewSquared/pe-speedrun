@@ -22,6 +22,8 @@ real-time.
  - [Part 2 - (problems 8 - 14)](https://www.twitch.tv/videos/943475231)
 
  - [Part 3 - (problems 15 - 18)](https://www.twitch.tv/videos/944393409)
+ 
+ - [Part 4 - (problems 19 - 25)](https://www.youtube.com/watch?v=crzmcXwNRjY)
 
 ## Running
 

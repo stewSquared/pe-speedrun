@@ -1,5 +1,17 @@
 package object algs {
 
+  def divisors(n: Long): Seq[Long] = {
+    if (n > 1) {
+      val primeFactors = factors(n)
+
+      val primeFactorCombinations: Seq[Long] =
+        (1 to primeFactors.length - 1).toSeq
+          .flatMap(primeFactors.combinations(_).map(_.product))
+
+      1L +: primeFactorCombinations
+    } else Nil
+  }
+
   def factors(n: Long): List[Int] = {
     def loop(n: Long, k: Int): List[Int] = {
       if (n == 1) Nil
