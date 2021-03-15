@@ -2,30 +2,28 @@ object p044 extends App {
 
   def pentagonalNumber(n: Int): Int = n * (3*n - 1) / 2
 
-  val pents = LazyList.from(1).map(pentagonalNumber)
+  def pents = LazyList.from(1).map(pentagonalNumber)
 
-  def isPentagonal(n: Int): Boolean =
+  // p = n(3n - 1) / 2
+
+  // 3n^2 - n -2p = 0
+
+  // n = (-(-1) +/- sqrt((-1)^2 - 4 * 3 * -2p)) / 2*3
+
+  // n = (1 + sqrt(1 + 24p)) / 6
+
+  def isPentagonal(n: Int): Boolean = (1 + math.sqrt(1 + 24*n)) % 6 == 0.0
+
+  def differences = pents.filter { diff =>
     pents
-      .dropWhile(_ < n)
-      .takeWhile(_ <= n)
-      .nonEmpty
-
-  val differences = pents.filter { diff =>
-    pents.zip(pents.drop(1))
-      .map { case (pent, next) => (pent, next - pent) }
-      .takeWhile { case (pent, d) => d <= diff }
-      .map { case (pent, _) => pent}
-      .exists { pj =>
-        val pk = pj + diff
-        isPentagonal(pk) && isPentagonal(pj + pk)
+      .sliding(2)
+      .takeWhile { case Seq(left, next) => next - left <= diff }
+      .map(_.head)
+      .exists { left =>
+        val right = left + diff
+        isPentagonal(right) && isPentagonal(left + right)
       }
   }
-
-  // val differences = for {
-  //   d <- pents
-  //   pj <- pents.zip(petagonals.drop(1)).map(_ - _).takeWhile(_ <= d).map(_._1) if isPentagonal(d + pj)
-
-  // } yield (d, pj)
 
   val ans = differences.head
 
