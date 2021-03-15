@@ -29,6 +29,8 @@ real-time.
 
  - [Part 6 - (problems 31-40)](https://www.twitch.tv/videos/948294680)
 
+ - [Part 7 - (problems 41-43)](https://www.twitch.tv/videos/949577439)
+
 ## Running
 
 Load `sbt` and then run a solution `runMain p###`, where `###` is the
