@@ -15,11 +15,7 @@ object p044 extends App {
   def isPentagonal(n: Int): Boolean = (1 + math.sqrt(1 + 24*n)) % 6 == 0.0
 
   def differences = pents.filter { diff =>
-    pents
-      .sliding(2)
-      .takeWhile { case Seq(left, next) => next - left <= diff }
-      .map(_.head)
-      .exists { left =>
+    pents.take(math.sqrt(diff).toInt).exists { left =>
         val right = left + diff
         isPentagonal(right) && isPentagonal(left + right)
       }
