@@ -2,6 +2,9 @@ import math.sqrt
 
 package object algs {
 
+  def factorial(n: Int): BigInt =
+    (2 to n).foldLeft(BigInt(1))(_ * _)
+
   def lcm(a: Int, b: Int): Int = {
     a / gcf(a, b) * b
   }

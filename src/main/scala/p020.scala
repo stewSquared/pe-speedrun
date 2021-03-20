@@ -1,6 +1,8 @@
+import algs.factorial
+
 object p020 extends App {
 
-  val ans = (BigInt(2) to 100).product.toString.map(_.asDigit).sum
+  val ans = factorial(100).toString.map(_.asDigit).sum
 
   println(ans)
 }
