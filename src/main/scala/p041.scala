@@ -1,23 +1,12 @@
-import math.{sqrt, ceil}
+import math.sqrt
 
 object p041 extends App {
 
-  val primes = algs.primesUntil(ceil(sqrt(1_000_000_000)).toInt)
+  // insight: all 8 and 9 digit pandigital numbers are divisibly by 3
 
-  def isPrime(n: Int): Boolean = {
-    primes
-      .takeWhile(_ < ceil(sqrt(n)).toInt)
-      .forall(p => n % p != 0)
-  }
+  val isPrime = algs.primesUntil(10_000_000).toSet
 
-  def isPandigital(n: Int): Boolean = {
-    "123456789".startsWith(n.toString.sorted)
-  }
-
-  val ans = (99_999_999 to 3 by -1).iterator
-    .filter(isPandigital)
-    .filter(isPrime)
-    .next
+  val ans = "7654321".permutations.map(_.toInt).filter(isPrime).next
 
   println(ans)
 }
