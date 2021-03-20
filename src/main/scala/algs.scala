@@ -2,6 +2,16 @@ import math.sqrt
 
 package object algs {
 
+  def lcm(a: Int, b: Int): Int = {
+    a / gcf(a, b) * b
+  }
+
+  def gcf(a: Int, b: Int): Int = {
+    if (a == b) a
+    else if (a < b) gcf(b, a)
+    else gcf(a - b, b)
+  }
+
   def divisors(n: Long): Seq[Long] = {
     if (n > 1) {
       val primeFactors = factors(n)
