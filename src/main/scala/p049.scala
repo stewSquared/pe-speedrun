@@ -7,13 +7,10 @@ object p049 extends App {
       case s if primes.contains(s.toInt) => s.toInt
     }
 
-    // TODO: technically, this sliding(3) misses cases like 1487
-    perms.sorted.sliding(3).collectFirst {
+    perms.combinations(3).map(_.sorted).collectFirst {
       case ps@Seq(p1, p2, p3) if p3-p2 == p2-p1 => ps
     }
   }
-
-  // got lucky, fix this
 
   primes.flatMap(primePermutations).distinct.map(_.mkString) foreach println
 }
