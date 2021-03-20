@@ -3,21 +3,14 @@ object p032 extends App {
   val pairs = "123456789".combinations(5)
     .flatMap(_.permutations)
     .flatMap(p => List(1,2).map(p.splitAt))
-    // .map { case (aDigits, bDigits) => aDigits.toInt, bDigits.toInt}
+    .map { case (aDigits, bDigits) => (aDigits.toInt, bDigits.toInt)}
 
-  // def isPandigital(aDigits: String, bDigits: String): Boolean = {
-  //   val product = aDigits.toInt * bDigits.toInt
-  // }
+  def isPandigital(a: Int, b: Int): Boolean = {
+    (a.toString + b.toString + (a*b).toString).sorted == "123456789"
+  }
 
-  val ans = pairs.map {
-    case (aDigits, bDigits) =>
-      val a = aDigits.mkString.toInt
-      val b = bDigits.mkString.toInt
-
-      val isPandigital = (aDigits.mkString + bDigits.mkString + (a*b).toString).sorted == "123456789"
-      (a*b, isPandigital)
-  }.collect {
-    case (product, isPandigital) if isPandigital => product
+  val ans = pairs.collect {
+    case (a, b) if isPandigital(a, b) => a * b
   }.distinct.sum
 
   println(ans)
