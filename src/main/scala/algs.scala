@@ -1,3 +1,5 @@
+import math.sqrt
+
 package object algs {
 
   def divisors(n: Long): Seq[Long] = {
@@ -24,15 +26,27 @@ package object algs {
   def primesUntil(n: Int): Seq[Int] = {
     val prime = Array.fill[Boolean](n)(true)
 
+    for { // mark evens first to optimize
+      k <- 4 until n by 2
+    } {
+      prime(k) = false
+    }
+
     for {
-      m <- 2 until math.floor(math.sqrt(n)).toInt
-      k <- m*2 until n by m if prime(k)
+      m <- 3 until sqrt(n).toInt by 2
+      k <- m*3 until n by m*2 if prime(k)
     } {
       prime(k) = false
     }
 
     prime.zipWithIndex.drop(2).collect {
       case (isPrime, i) if isPrime => i
+    }
+  }
+
+  def isPrime(n: Int): Boolean = {
+    primesUntil(sqrt(n).toInt).forall { p =>
+      n % p != 0
     }
   }
 

@@ -1,3 +1,5 @@
+import algs.primesUntil
+
 object p035 extends App {
 
   def circulations(n: Int): Seq[Int] = {
@@ -11,13 +13,15 @@ object p035 extends App {
     loop(circulate(n.toString)).map(_.toInt)
   }
 
-  val isPrime = algs.primesUntil(1_000_000).toSet
+  val primes = primesUntil(1_000_000)
+
+  val isPrime = primes.toSet
 
   def circular(p: Int): Boolean = {
     circulations(p).forall(isPrime)
   }
 
-  val ans = isPrime.count(circular)
+  val ans = primes.count(circular)
 
   println(ans)
 }

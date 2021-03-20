@@ -1,8 +1,10 @@
+import algs.primesUntil
+
 object p046 extends App {
 
   val upperLimit = 10000
 
-  val primes = algs.primesUntil(upperLimit).drop(1)
+  val primes = primesUntil(upperLimit).drop(1)
 
   val isPrime = primes.toSet
 

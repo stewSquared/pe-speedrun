@@ -1,13 +1,15 @@
+import algs.primesUntil
+
 object p027 extends App {
 
-  val primes = algs.primesUntil(100000).toSet
+  val isPrime = primesUntil(100000).toSet
 
   def quadratic(a: Int, b: Int): Int => Int = {
     n => n*n + a*n + b
   }
 
   def consecutivePrimes(f: Int => Int): Int = {
-    Stream.from(0).takeWhile(n => primes.contains(f(n))).length
+    Stream.from(0).takeWhile(n => isPrime(f(n))).length
   }
 
   val coeficients = for {
