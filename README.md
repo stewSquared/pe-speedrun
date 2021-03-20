@@ -17,21 +17,23 @@ real-time.
 
 ## VODS
 
- - [Part 1 - (problems 1 - 7)](https://www.twitch.tv/videos/943028867)
+ - [Part 1: Problems 1-7](https://www.twitch.tv/videos/943028867)
 
- - [Part 2 - (problems 8 - 14)](https://www.twitch.tv/videos/943475231)
+ - [Part 2: Problems 8-14](https://www.twitch.tv/videos/943475231)
 
- - [Part 3 - (problems 15 - 18)](https://www.twitch.tv/videos/944393409)
+ - [Part 3: Problems 15-18](https://www.twitch.tv/videos/944393409)
  
- - [Part 4 - (problems 19 - 25)](https://www.youtube.com/watch?v=crzmcXwNRjY)
+ - [Part 4: Problems 19-25](https://www.youtube.com/watch?v=crzmcXwNRjY)
  
- - [Part 5 - (problems 26 - 30)](https://www.twitch.tv/videos/947028673)
+ - [Part 5: Problems 26-30](https://www.twitch.tv/videos/947028673)
 
- - [Part 6 - (problems 31-40)](https://www.twitch.tv/videos/948294680)
+ - [Part 6: Problems 26,31-40](https://www.twitch.tv/videos/948294680)
 
- - [Part 7 - (problems 41-43)](https://www.twitch.tv/videos/949577439)
+ - [Part 7: Problems 33,41-45](https://www.twitch.tv/videos/949577439)
 
- - [Part 8 - (problems 44-50)](https://www.twitch.tv/videos/954025560)
+ - [Part 8: Problems 44-50](https://www.twitch.tv/videos/954025560)
+
+ - [Review and Refactor: Problems 1-50](https://www.twitch.tv/videos/955748043)
 
 ## Running
 
@@ -42,8 +44,8 @@ zero-padded problem number.
 
 I first started solving PE problems 9 years ago, as a learning tool
 before entering the software industry. My original repo, for PE user
-stewSquared, is [here](https://github.com/stewsquared/project-euler),
-and my origbinal PE username is `stewSquared`. Since then, I've become
-a professional software developer, using mostly Scala. I have some
-free time, so I've decided to revisit these problems to see how long
-they take me.
+`stewSquared`, is
+[here](https://github.com/stewsquared/project-euler). Since then, I've
+become a professional software developer, using mostly Scala. I have
+some free time, so I've decided to revisit these problems to see how
+long they take me.
