@@ -9,7 +9,7 @@ object p027 extends App {
   }
 
   def consecutivePrimes(f: Int => Int): Int = {
-    Stream.from(0).takeWhile(n => isPrime(f(n))).length
+    LazyList.from(0).map(f).segmentLength(isPrime)
   }
 
   val coeficients = for {

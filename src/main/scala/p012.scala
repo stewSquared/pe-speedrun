@@ -6,7 +6,7 @@ object p012 extends App {
   def perfectSquare(n: Int) = sqrt(n).isWhole
 
   val numDivisors = triangulars.map { n =>
-    val divisorsUnderRoot = (1 until sqrt(n).toInt).filter(n % _ == 0).length
+    val divisorsUnderRoot = (1 until sqrt(n).toInt).count(n % _ == 0)
     val numDivisors = divisorsUnderRoot * 2 + (if (perfectSquare(n)) 1 else 0)
     n -> numDivisors
   }

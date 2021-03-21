@@ -5,7 +5,7 @@ object p026 extends App {
 
     def findRepeats(remainders: LazyList[Int], seen: List[Int]): Int = {
       remainders match {
-        case r #:: rs if(seen.contains(r)) => seen.indexOf(r) + 1
+        case r #:: rs if seen.contains(r) => seen.indexOf(r) + 1
         case r #:: rs => findRepeats(rs, r :: seen)
         case _ => 0
       }
