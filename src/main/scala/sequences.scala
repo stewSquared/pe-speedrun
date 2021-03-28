@@ -20,7 +20,7 @@ package object sequences {
 
   def pentagonal(n: Long): Long = n * (3*n - 1) / 2
 
-  def isPentagonal(n: Long): Boolean = (1 + math.sqrt(1 + 24*n)) % 6 == 0.0
+  def isPentagonal(n: Long): Boolean = (1 + math.sqrt((1 + 24*n).toDouble)) % 6 == 0.0
 
   def hexagonal(n: Long): Long = n * (2*n - 1)
 

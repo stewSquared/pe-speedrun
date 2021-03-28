@@ -52,7 +52,7 @@ package object algs {
       prime(k) = false
     }
 
-    prime.zipWithIndex.drop(2).collect {
+    prime.toIndexedSeq.zipWithIndex.drop(2).collect {
       case (isPrime, i) if isPrime => i
     }
   }
