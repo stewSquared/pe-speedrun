@@ -1,10 +1,8 @@
 package fractions
 
-def gcf(a: BigInt, b: BigInt): BigInt = {
-  if (a == b) a
-  else if (a < b) gcf(b, a)
-  else gcf(a - b, b)
-}
+import scala.math.Integral.Implicits.infixIntegralOps
+
+import algs.gcf
 
 case class Fraction(numerator: BigInt, denominator: BigInt) {
   lazy val simplified: Fraction = {

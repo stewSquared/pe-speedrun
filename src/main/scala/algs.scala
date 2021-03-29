@@ -1,15 +1,18 @@
-import math.sqrt
+import scala.collection.immutable.NumericRange
+import scala.math.Integral.Implicits.infixIntegralOps
+import scala.math.Ordering.Implicits.infixOrderingOps
+import scala.math.sqrt
 
 package object algs {
 
   def factorial(n: Int): BigInt =
     (2 to n).foldLeft(BigInt(1))(_ * _)
 
-  def lcm(a: Int, b: Int): Int = {
-    a / gcf(a, b) * b
+  def lcm[N : Integral](a: N, b: N): N = {
+    a * b / gcf(a, b)
   }
 
-  def gcf(a: Int, b: Int): Int = {
+  def gcf[N : Integral](a: N, b: N): N = {
     if (a == b) a
     else if (a < b) gcf(b, a)
     else gcf(a - b, b)
