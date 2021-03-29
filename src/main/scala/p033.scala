@@ -19,8 +19,8 @@ object p033 extends App {
 
     commonDigits.exists { digit =>
       val fracs = for {
-        n <- removals(digit, f.numerator)
-        d <- removals(digit, f.denominator)
+        n <- removals(digit, f.numerator.toInt)
+        d <- removals(digit, f.denominator.toInt)
       } yield Fraction(n,d)
       fracs.exists { f2 =>
         f2 == f && (f.numerator != f2.numerator * 10)
