@@ -39,25 +39,21 @@ package object algs {
     loop(n, k = 2)
   }
 
-  def primesUntil(n: Int): Seq[Int] = {
-    val prime = Array.fill[Boolean](n)(true)
+  def primesUntil(n: Int): collection.BitSet = {
+    val isPrime = new collection.mutable.BitSet(n)
 
-    for { // mark evens first to optimize
-      k <- 4 until n by 2
-    } {
-      prime(k) = false
-    }
+    // optimize sieve by skipping even cases
+    (3 until n by 2).foreach(isPrime += _)
+    isPrime += 2
 
     for {
       m <- 3 until sqrt(n).toInt by 2
-      k <- m*3 until n by m*2 if prime(k)
+      k <- m*3 until n by m*2
     } {
-      prime(k) = false
+      isPrime -= k
     }
 
-    prime.toIndexedSeq.zipWithIndex.drop(2).collect {
-      case (isPrime, i) if isPrime => i
-    }
+    isPrime
   }
 
   def isPrime(n: Int): Boolean = {
