@@ -2,9 +2,7 @@ import algs.primesUntil
 
 object p051 extends App {
 
-  val primes = primesUntil(1_000_000)
-
-  val isPrime = primes.toSet
+  val isPrime = primesUntil(1_000_000)
 
   def replacements(number: Int, digit: Char): Seq[Int] = {
     "1234567890".map { (replacement: Char) =>
@@ -21,7 +19,7 @@ object p051 extends App {
   def hasFamilyOf8(p: Int): Boolean =
     primeFamilies(p).exists(_.length == 8)
 
-  val ans = primes.find(hasFamilyOf8)
+  val ans = isPrime.find(hasFamilyOf8)
 
   println(ans)
 }

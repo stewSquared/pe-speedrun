@@ -1,6 +1,8 @@
+import algs.primesUntil
+
 object p049 extends App {
 
-  val primes = algs.primesUntil(10_000).dropWhile(_ < 1000)
+  val primes = primesUntil(10_000).dropWhile(_ < 1000).toSeq
 
   def primePermutations(p: Int): Option[Seq[Int]] = {
     val perms = p.toString.permutations.toSeq.collect {
@@ -12,5 +14,5 @@ object p049 extends App {
     }
   }
 
-  primes.flatMap(primePermutations).distinct.map(_.mkString) foreach println
+  primes.toSeq.flatMap(primePermutations).distinct.map(_.mkString) foreach println
 }

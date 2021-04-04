@@ -3,9 +3,9 @@ import algs.primesUntil
 
 object p060 extends App {
 
-  val primes = primesUntil(10_000_000)
+  val isPrime = primesUntil(10_000_000)
 
-  val isPrime = primes.toSet
+  val primes = isPrime.toSeq
 
   val upperLimit = 1000
 

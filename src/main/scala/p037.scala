@@ -1,5 +1,10 @@
+import algs.primesUntil
+
 object p037 extends App {
-  val isPrime = algs.primesUntil(1_000_000).toSet
+  val upperLimit = 1_000_000
+
+  val isPrime = primesUntil(upperLimit)
+  val primes = isPrime.dropWhile(_ < 10)
 
   def isTruncatable(p: Int): Boolean = {
     val s = p.toString
@@ -9,7 +14,11 @@ object p037 extends App {
     truncations.map(_.toInt).forall(isPrime)
   }
 
-  val ans = isPrime.filter(p => p > 10 && isTruncatable(p)).sum
+  val truncatablePrimes = primes.filter(isTruncatable).take(11)
+
+  assert(truncatablePrimes.sizeIs == 11, s"raise upper limit: $upperLimit")
+
+  val ans = truncatablePrimes.sum
 
   println(ans)
 }

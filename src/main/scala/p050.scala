@@ -1,18 +1,19 @@
 import algs.primesUntil
 
 object p050 extends App {
-  val primes = primesUntil(1_000_000).toVector
+  val isPrime = primesUntil(1_000_000)
 
-  val isPrime = primes.toSet
+  val primes = isPrime.toVector
 
-  val consecutiveUpperLimit = primes
-    .scanLeft(0)(_ + _)
-    .takeWhile(_ <= primes.last)
-    .length
+  def prefixes = primes.scanLeft(0)(_ + _)
 
-  def primeSum(consecutive: Int): Option[Int] = primes
-    .sliding(consecutive).toSeq
-    .map(_.sum)
+  val consecutiveUpperLimit = prefixes.takeWhile(_ <= primes.last).length
+
+  def sumOfSlice(i: Int, j: Int): Int = prefixes(j) - prefixes(i)
+
+  def primeSum(consecutive: Int): Option[Int] = Iterator
+    .from(0, primes.size - consecutive)
+    .map(i => sumOfSlice(i, i+consecutive))
     .takeWhile(_ <= primes.last)
     .find(isPrime)
 

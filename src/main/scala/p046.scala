@@ -1,12 +1,9 @@
-import algs.primesUntil
+import algs.erastothenes
+import algs.isPrime
 
 object p046 extends App {
 
-  val upperLimit = 10000
-
-  val primes = primesUntil(upperLimit).drop(1)
-
-  val isPrime = primes.toSet
+  val primes = erastothenes.drop(1)
 
   def satisfiesGoldbach(odd: Int): Boolean = {
     require(odd%2 == 1)
@@ -15,12 +12,9 @@ object p046 extends App {
       .exists(p => math.sqrt((odd - p) / 2).isWhole)
   }
 
-  val oddComposites = (3 until upperLimit by 2)
-    .filterNot(isPrime)
+  def oddComposites = Iterator.from(3, 2).filterNot(isPrime)
 
-  val ans = oddComposites
-    .filterNot(satisfiesGoldbach)
-    .headOption.get
+  val ans = oddComposites.filterNot(satisfiesGoldbach).next
 
   println(ans)
 }
