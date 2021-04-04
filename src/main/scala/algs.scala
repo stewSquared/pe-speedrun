@@ -57,8 +57,11 @@ package object algs {
   }
 
   def isPrime(n: Int): Boolean = {
-    primesUntil(sqrt(n).toInt).forall { p =>
-      n % p != 0
+    if (n < 2) false
+    else {
+      val root = sqrt(n)
+      (!root.isWhole
+        && (2 to root.toInt).forall(n % _ != 0))
     }
   }
 
