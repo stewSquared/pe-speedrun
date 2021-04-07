@@ -1,48 +1,26 @@
-// import algs.erastothenes
 import algs.primesUntil
 
 object p060 extends App {
+  val primes = algs.primesUntil(10000).toSeq
 
-  val isPrime = primesUntil(10_000_000)
+  val concatsWith = primes.map { p =>
+    p -> primes.dropWhile(_ <= p)
+      .filter(q => algs.isPrime(s"$p$q".toInt))
+      .filter(q => algs.isPrime(s"$q$p".toInt))
+      .toSet
+  }.toMap
 
-  val primes = isPrime.toSeq
-
-  val upperLimit = 1000
-
-  val primePairs: Set[(Int, Int)] = {
-    val pairs = for {
-      i <- 0 to upperLimit
-      j <- 0 until i
-      p = primes(j)
-      q = primes(i)
-      ps = p.toString
-      qs = q.toString
-      if isPrime((ps+qs).toInt)
-      if isPrime((qs+ps).toInt)
-    } yield (primes(j), primes(i))
-
-    pairs.toSet
+  def grow(ps: Set[Int]): Seq[Set[Int]] = {
+    val common = ps.toSeq.map(concatsWith).reduce(_ intersect _)
+    common.toSeq.map(ps + _)
   }
 
-  def concatsToPrime(p: Int, q: Int): Boolean = {
-    primePairs.contains((p min q, p max q))
-  }
+  val seeds = primes.map(Set(_))
 
-  def grow(oldPrimes: Set[Int]): Seq[Set[Int]] = {
-    primes
-      .take(upperLimit)
-      .filter(p => oldPrimes.forall(concatsToPrime(_, p)))
-      .map(oldPrimes + _ )
-  }
+  def sets = Iterator.iterate(seeds)(_.flatMap(grow))
 
-  val initial = primePairs.toSeq.map { case (a, b) => Set(a, b) }
-
-  def growTo(n: Int): Seq[Set[Int]] = {
-    if (n == 2) initial
-    else growTo(n-1).flatMap(grow).distinct // important pruning!
-  }
-
-  val ans = growTo(4).map(_.sum).minOption
+  val ans = sets.drop(4).next.minBy(_.sum)
 
   println(ans)
+  println(ans.sum)
 }
