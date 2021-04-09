@@ -2,45 +2,29 @@ import fractions.Fraction
 
 object p033 extends App {
 
-  def removals(digit: Int, number: Int, from: Int = 0): List[Int] = {
-    val index = number.toString.map(_.asDigit).indexOf(digit, from)
-    if (number < 10) Nil
-    else if (index == -1) Nil
-    else {
-      val (left, right) = number.toString.splitAt(index)
-      val newNumber = (left ++ right.drop(1)).toInt
-      if (newNumber == 0) removals(digit, number, index+1)
-      else newNumber :: removals(digit, number, index+1)
+  def curious(num: Int, den: Int): Boolean = {
+    def commonDigits: String = s"$num".intersect(s"$den").distinct
+
+    commonDigits.grouped(1).exists { (digit: String) =>
+      // `replaceFirst` is fine since these are two-digit numbers
+      val n = s"$num".replaceFirst(digit, "").toInt
+      val d = s"$den".replaceFirst(digit, "").toInt
+      Fraction(n,d) == Fraction(num, den)
     }
   }
 
-  def isCurious(f: Fraction): Boolean = {
-    val commonDigits = f.numerator.toString.intersect(f.denominator.toString).map(_.asDigit)
-
-    commonDigits.exists { digit =>
-      val fracs = for {
-        n <- removals(digit, f.numerator.toInt)
-        d <- removals(digit, f.denominator.toInt)
-      } yield Fraction(n,d)
-      fracs.exists { f2 =>
-        f2 == f && (f.numerator != f2.numerator * 10)
-      }
-    }
+  val fractions = {
+    for {
+      d <- 10 to 99 // "two digits"
+      n <- 10 until d // "less than one in value"
+      gcf = algs.gcf(n, d)
+      coprime = gcf == 1
+      trivial = gcf % 10 == 0
+      if !(coprime || trivial) && curious(n, d)
+    } yield Fraction(n, d)
   }
 
-  def fractions: LazyList[Fraction] = {
-    def fracsOfLength(length: Int) = {
-      for {
-        d <- math.pow(10, length - 1).toInt until math.pow(10, length).toInt
-        n <- 1 until d
-      } yield Fraction(n, d)
-    }
-    LazyList.from(2).flatMap(l => fracsOfLength(l))
-  }
-
-  val curiousFractions = fractions.filter(isCurious).take(4)
-
-  val ans = curiousFractions.reduce(_ multiply _).denominator
+  val ans = fractions.product.denominator
 
   println(ans)
 }

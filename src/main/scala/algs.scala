@@ -13,9 +13,8 @@ package object algs {
   }
 
   def gcf[N : Integral](a: N, b: N): N = {
-    if (a == b) a
-    else if (a < b) gcf(b, a)
-    else gcf(a - b, b)
+    if (b == 0) a.abs
+    else gcf(b, a % b)
   }
 
   def divisors(n: Long): Seq[Long] = {
