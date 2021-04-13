@@ -1,8 +1,8 @@
-import algs.divisors
+import algs.properDivisors
 
 object p021 extends App {
 
-  def d(n: Int): Int = divisors(n).sum.toInt
+  def d(n: Int): Int = properDivisors(n).sum.toInt
 
   def amicable(n: Int): Boolean = {
     (d(d(n)) == n) && (d(n) != n)

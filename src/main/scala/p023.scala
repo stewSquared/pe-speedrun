@@ -1,5 +1,8 @@
+import algs.properDivisors
+
 object p023 extends App {
-  def abundant(n: Int): Boolean = algs.divisors(n).sum > n
+
+  def abundant(n: Int): Boolean = properDivisors(n).sum > n
 
   val upperLimit = 28123
 

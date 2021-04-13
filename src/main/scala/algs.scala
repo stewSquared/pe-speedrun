@@ -17,25 +17,22 @@ package object algs {
     else gcf(b, a % b)
   }
 
-  def divisors(n: Long): Seq[Long] = {
-    if (n > 1) {
-      val primeFactors = factors(n)
-
-      val primeFactorCombinations: Seq[Long] =
-        (1 to primeFactors.length - 1).toSeq
-          .flatMap(primeFactors.combinations(_).map(_.product))
-
-      1L +: primeFactorCombinations
-    } else Nil
+  def properDivisors[N : Integral](n: N): List[N] = {
+    val factors = primeFactors(n)
+    for {
+      k <- (0 until factors.length).toList
+      ps <- factors.combinations(k)
+    } yield ps.product
   }
 
-  def factors(n: Long): List[Int] = {
-    def loop(n: Long, k: Int): List[Int] = {
-      if (n == 1) Nil
-      else if (n % k == 0) k :: loop(n/k, k)
-      else loop(n, k+1)
+  def primeFactors[N](n: N)(using N: Integral[N]): List[N] = {
+    require(n != N.zero, "0 has infinite factors")
+    def loop(n: N, k: N): List[N] = {
+      if (n == N.one) Nil
+      else if (n % k == N.zero) k :: loop(n/k, k)
+      else loop(n, k + N.one)
     }
-    loop(n, k = 2)
+    loop(n.abs, k = N.fromInt(2))
   }
 
   def primesUntil(n: Int): collection.BitSet = {
