@@ -1,6 +1,6 @@
 import sequences.fibonacci
 
-object p002 extends App {
+@main def p002(): Unit = {
 
   val ans = fibonacci
     .filter(_ % 2 == 0)

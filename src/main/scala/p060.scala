@@ -1,6 +1,6 @@
 import algs.primesUntil
 
-object p060 extends App {
+@main def p060(): Unit = {
   val primes = algs.primesUntil(10000).toSeq
 
   val concatsWith = primes.map { p =>

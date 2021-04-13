@@ -1,4 +1,4 @@
-object p040 extends App {
+@main def p040(): Unit = {
 
   val digits: LazyList[Int] = LazyList.from(0).flatMap(_.toString.map(_.asDigit))
 

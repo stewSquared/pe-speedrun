@@ -1,6 +1,6 @@
 import sequences.{hexagonals, isPentagonal}
 
-object p045 extends App {
+@main def p045(): Unit = {
 
   // note that all hexagonals are already triangle numbers
 

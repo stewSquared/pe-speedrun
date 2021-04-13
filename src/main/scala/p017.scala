@@ -1,4 +1,4 @@
-object p017 extends App {
+@main def p017(): Unit = {
 
   def numberToWords(n: Int): String = n match {
     case 0 => "zero"

@@ -1,4 +1,4 @@
-object p061 extends App {
+@main def p061(): Unit = {
   def fourDigit(g: Int => Int): List[Int] =
     Iterator.from(1).map(g).dropWhile(_ < 1000).takeWhile(_ < 10_000).toList
 

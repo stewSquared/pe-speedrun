@@ -1,4 +1,4 @@
-object p031 extends App {
+@main def p031(): Unit = {
 
   def countWays(value: Int, coins: List[Int]): Int = {
     if (value < 0) 0

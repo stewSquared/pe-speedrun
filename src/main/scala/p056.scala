@@ -1,4 +1,4 @@
-object p056 extends App {
+@main def p056(): Unit = {
   val powers = for {
     a <- 1 until 100
     b <- 1 until 100

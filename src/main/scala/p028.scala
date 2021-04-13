@@ -1,4 +1,4 @@
-object p028 extends App {
+@main def p028(): Unit = {
 
   def cornerSum(side: Int): Int = {
     require(side % 2 == 1)

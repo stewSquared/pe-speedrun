@@ -1,6 +1,6 @@
 import algs.isPrime
 
-object p058 extends App {
+@main def p058(): Unit = {
 
   def sideLengths = Iterator.from(1, 2)
 

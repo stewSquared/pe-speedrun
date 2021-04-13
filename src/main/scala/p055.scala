@@ -1,4 +1,4 @@
-object p055 extends App {
+@main def p055(): Unit = {
   def isPalindrome(n: BigInt): Boolean = {
     n.toString == n.toString.reverse
   }

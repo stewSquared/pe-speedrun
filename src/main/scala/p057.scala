@@ -2,7 +2,7 @@ import scala.math.Fractional.Implicits.infixFractionalOps
 
 import fractions.Fraction
 
-object p057 extends App {
+@main def p057(): Unit = {
   val one = Fraction(1, 1)
 
   def expansions: Iterator[Fraction] =

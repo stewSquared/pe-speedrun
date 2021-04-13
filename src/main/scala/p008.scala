@@ -1,4 +1,4 @@
-object p008 extends App {
+@main def p008(): Unit = {
   val digits = io.Source.fromFile("p008.txt")
     .getLines
     .flatMap(_.map(_.asDigit.toLong))

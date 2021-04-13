@@ -1,7 +1,7 @@
 import math.sqrt
 import algs.isPrime
 
-object p041 extends App {
+@main def p041(): Unit = {
 
   // insight: all 8 and 9 digit pandigital numbers are divisibly by 3
 

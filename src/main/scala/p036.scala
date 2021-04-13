@@ -1,4 +1,4 @@
-object p036 extends App {
+@main def p036(): Unit = {
 
   def isBinPalindrome(n: Int): Boolean = {
     val s = n.toBinaryString

@@ -1,4 +1,4 @@
-object p011 extends App {
+@main def p011(): Unit = {
 
   val rows: List[List[Int]] = io.Source.fromFile("p011.txt")
     .getLines

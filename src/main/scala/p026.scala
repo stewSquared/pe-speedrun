@@ -1,4 +1,4 @@
-object p026 extends App {
+@main def p026(): Unit = {
 
   def cycleLength(n: Int): Int = {
     val remainders = LazyList.iterate(1 % n)(r => (r*10) % n).takeWhile(_ != 0)

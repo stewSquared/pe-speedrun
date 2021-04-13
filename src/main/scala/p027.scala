@@ -1,6 +1,6 @@
 import algs.isPrime
 
-object p027 extends App {
+@main def p027(): Unit = {
 
   def quadratic(a: Int, b: Int): Int => Int = {
     n => n*n + a*n + b

@@ -1,6 +1,6 @@
 import fractions.Fraction
 
-object p033 extends App {
+@main def p033(): Unit = {
 
   def curious(num: Int, den: Int): Boolean = {
     def commonDigits: String = s"$num".intersect(s"$den").distinct

@@ -1,6 +1,6 @@
 import algs.primeFactors
 
-object p047 extends App {
+@main def p047(): Unit = {
 
   def fourPrimeFactors(n: Int): Boolean = {
     primeFactors(n).distinct.length == 4

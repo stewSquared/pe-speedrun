@@ -1,4 +1,4 @@
-object p009 extends App {
+@main def p009(): Unit = {
   def isPythagorean(a: Int, b: Int, c: Int): Boolean =
     a*a + b*b == c*c
 

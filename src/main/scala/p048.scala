@@ -1,4 +1,4 @@
-object p048 extends App {
+@main def p048(): Unit = {
 
   def powers(n: Int): LazyList[Long] = LazyList.iterate(1L)(p => (p*n) % 10_000_000_000L)
 

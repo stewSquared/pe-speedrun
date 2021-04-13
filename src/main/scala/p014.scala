@@ -1,4 +1,4 @@
-object p014 extends App {
+@main def p014(): Unit = {
 
   def collatz(n: Long): Long = {
     if (n%2 == 0) n/2

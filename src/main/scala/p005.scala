@@ -1,6 +1,6 @@
 import algs.lcm
 
-object p005 extends App {
+@main def p005(): Unit = {
   val ans = (1 to 20).reduce(lcm)
 
   println(ans)

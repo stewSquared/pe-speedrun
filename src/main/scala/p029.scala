@@ -1,4 +1,4 @@
-object p029 extends App {
+@main def p029(): Unit = {
   val terms = for {
     a <- 2 to 100
     b <- 2 to 100

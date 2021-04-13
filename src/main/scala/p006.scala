@@ -1,4 +1,4 @@
-object p006 extends App {
+@main def p006(): Unit = {
 
   def sumOfSquares(n: Int): Int = {
     (1 to n).map(n => n*n).sum

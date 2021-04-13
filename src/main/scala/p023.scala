@@ -1,6 +1,6 @@
 import algs.properDivisors
 
-object p023 extends App {
+@main def p023(): Unit = {
 
   def abundant(n: Int): Boolean = properDivisors(n).sum > n
 

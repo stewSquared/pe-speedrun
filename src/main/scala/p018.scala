@@ -1,4 +1,4 @@
-object p018 extends App {
+@main def p018(): Unit = {
   def maximumPathSum(rows: Seq[Seq[Int]]): Int = {
     rows.reduceRight[Seq[Int]] { case (nextRow, acc) =>
       acc.init.zip(acc.tail).zip(nextRow).map {

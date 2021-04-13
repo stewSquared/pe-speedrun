@@ -1,4 +1,4 @@
-object p043 extends App {
+@main def p043(): Unit = {
 
   val primes = algs.erastothenes.take(7)
 

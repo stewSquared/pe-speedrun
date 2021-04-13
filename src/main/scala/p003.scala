@@ -1,6 +1,6 @@
 import algs.primeFactors
 
-object p003 extends App {
+@main def p003(): Unit = {
 
   val ans = primeFactors(600851475143L).last
 

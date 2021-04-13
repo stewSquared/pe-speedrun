@@ -1,4 +1,4 @@
-object p039 extends App {
+@main def p039(): Unit = {
 
   def solutions(p: Int): Seq[(Int, Int, Int)] = {
     val trips = for {

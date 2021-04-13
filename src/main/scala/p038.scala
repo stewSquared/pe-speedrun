@@ -1,4 +1,4 @@
-object p038 extends App {
+@main def p038(): Unit = {
 
   def concatenatedProducts(n: Int): LazyList[String] = {
     LazyList.from(1).scanLeft("")((acc, m) => acc + (m*n).toString)

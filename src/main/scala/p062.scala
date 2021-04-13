@@ -1,4 +1,4 @@
-object p062 extends App {
+@main def p062(): Unit = {
   def cubes: Iterator[Long] = Iterator.from(1).map[Long](_.toLong).map(n => n*n*n)
 
   val ans = cubes

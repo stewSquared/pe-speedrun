@@ -1,4 +1,4 @@
-object p059 extends App {
+@main def p059(): Unit = {
   def decrypt(message: Seq[Char], key: Seq[Char]): String = {
     message
       .zip(Iterator.continually(key).flatten)

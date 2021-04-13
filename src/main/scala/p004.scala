@@ -1,4 +1,4 @@
-object p004 extends App {
+@main def p004(): Unit = {
   def palindromic(n: Int): Boolean = n.toString.reverse == n.toString
 
   // def products: LazyList

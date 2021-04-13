@@ -1,6 +1,6 @@
 import algs.factorial
 
-object p020 extends App {
+@main def p020(): Unit = {
 
   val ans = factorial(100).toString.map(_.asDigit).sum
 

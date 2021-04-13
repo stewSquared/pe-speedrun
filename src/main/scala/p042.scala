@@ -1,6 +1,6 @@
 import sequences.isTriangular
 
-object p042 extends App {
+@main def p042(): Unit = {
 
   def alphabeticalValue(s: String): Int = s.map(_ - 64).sum
 

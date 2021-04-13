@@ -1,4 +1,4 @@
-object p019 extends App {
+@main def p019(): Unit = {
 
   def daysInMonth(month: Int, year: Int): Int = month match {
     case 1 => 31

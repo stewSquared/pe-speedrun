@@ -1,6 +1,6 @@
 import algs.primesUntil
 
-object p051 extends App {
+@main def p051(): Unit = {
 
   val isPrime = primesUntil(1_000_000)
 

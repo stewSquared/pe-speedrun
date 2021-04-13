@@ -1,4 +1,4 @@
-object p032 extends App {
+@main def p032(): Unit = {
 
   val pairs = "123456789".combinations(5)
     .flatMap(_.permutations)

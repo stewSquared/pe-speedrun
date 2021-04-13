@@ -1,6 +1,6 @@
 import scala.math.Ordering.Implicits.seqOrdering
 
-object p054 extends App {
+@main def p054(): Unit = {
   enum Suit {
     case Clubs, Diamonds, Spades, Hearts
   }

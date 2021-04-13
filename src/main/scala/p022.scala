@@ -1,4 +1,4 @@
-object p022 extends App {
+@main def p022(): Unit = {
 
   val names = io.Source
     .fromFile("p022.txt")

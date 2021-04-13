@@ -1,7 +1,7 @@
 import math.sqrt
 import sequences.triangulars
 
-object p012 extends App {
+@main def p012(): Unit = {
 
   def perfectSquare(n: Int) = sqrt(n).isWhole
 

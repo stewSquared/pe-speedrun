@@ -1,6 +1,6 @@
 import algs.primesUntil
 
-object p049 extends App {
+@main def p049(): Unit = {
 
   val primes = primesUntil(10_000).dropWhile(_ < 1000).toSeq
 

@@ -1,4 +1,4 @@
-object p044 extends App {
+@main def p044(): Unit = {
 
   def pentagonalNumber(n: Int): Int = n * (3*n - 1) / 2
 

@@ -1,6 +1,6 @@
 import sequences.fibonacci
 
-object p025 extends App {
+@main def p025(): Unit = {
 
   val ans = fibonacci.indexWhere(_.toString.length == 1000)
 

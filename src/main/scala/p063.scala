@@ -1,4 +1,4 @@
-object p063 extends App {
+@main def p063(): Unit = {
   def countNthPower(n: Int): Int = Iterator.from(1)
     .map(math.pow(_, n))
     .dropWhile(_ < math.pow(10, n-1))

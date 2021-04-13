@@ -1,6 +1,6 @@
 import syntax._
 
-object p015 extends App {
+@main def p015(): Unit = {
 
   val ans = 40 choose 20
 

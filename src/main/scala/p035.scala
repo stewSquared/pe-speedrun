@@ -1,6 +1,6 @@
 import algs.primesUntil
 
-object p035 extends App {
+@main def p035(): Unit = {
 
   def circulations(n: Int): Seq[Int] = {
     def circulate(s: String): String = {

@@ -1,6 +1,6 @@
 import algs.properDivisors
 
-object p021 extends App {
+@main def p021(): Unit = {
 
   def d(n: Int): Int = properDivisors(n).sum.toInt
 

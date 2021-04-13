@@ -1,6 +1,6 @@
 import syntax._
 
-object p053 extends App {
+@main def p053(): Unit = {
   val binomials = for {
     n <- 1 to 100
     r <- 0 to n

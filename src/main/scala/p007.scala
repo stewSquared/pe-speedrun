@@ -1,4 +1,4 @@
-object p007 extends App {
+@main def p007(): Unit = {
 
   import algs.erastothenes
 

@@ -1,7 +1,7 @@
 import algs.erastothenes
 import algs.isPrime
 
-object p046 extends App {
+@main def p046(): Unit = {
 
   val primes = erastothenes.drop(1)
 
