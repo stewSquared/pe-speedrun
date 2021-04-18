@@ -43,7 +43,7 @@ package object algs {
     isPrime += 2
 
     for {
-      m <- 3 until sqrt(n).toInt by 2
+      m <- 3 to sqrt(n).toInt by 2 if isPrime(m)
       k <- m*3 until n by m*2
     } {
       isPrime -= k
