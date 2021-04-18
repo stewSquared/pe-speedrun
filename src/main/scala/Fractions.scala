@@ -62,4 +62,7 @@ object Fraction {
 
     def compare(a: Fraction, b: Fraction): Int = a.subtract(b).numerator.toInt
   }
+
+  extension (num: Int)
+    infix def over(den: Int): Fraction = Fraction(num, den)
 }
