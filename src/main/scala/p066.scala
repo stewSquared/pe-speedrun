@@ -2,7 +2,7 @@ import math.sqrt
 import math.Fractional.Implicits._
 import BigDecimal.defaultMathContext as mc
 
-import fractions.Fraction
+import fractions.{Fraction, over}
 
 @main def p066(): Unit = {
   case class State(num: Int, radical: Int, offset: Int)
@@ -19,9 +19,10 @@ import fractions.Fraction
     whole -> state.copy(num = nextNum, offset = nextOffset)
   }
 
-  def continuedFraction(whole: Int, parts: Seq[Int]): Fraction = {
-    Fraction(whole, 1) + parts.foldRight(Fraction(0, 1))((a, f) => (Fraction(a, 1) + f).reciprocal)
-  }
+  def continuedFraction(whole: Int, parts: Seq[Int]): Fraction =
+    (whole over 1) + parts.foldRight(0 over 1) {
+      (a, f) => ((a over 1) + f).reciprocal
+    }
 
   def convergents(radical: Int): Iterator[Fraction] = {
     val whole = sqrt(radical).toInt

@@ -1,12 +1,13 @@
 import scala.math.Fractional.Implicits.infixFractionalOps
 
-import fractions.Fraction
+import fractions.{Fraction, over}
 
 @main def p057(): Unit = {
-  val one = Fraction(1, 1)
+
+  val one = 1 over 1
 
   def expansions: Iterator[Fraction] =
-    Iterator.iterate(Fraction(3, 2))(f => one + (one + f).reciprocal)
+    Iterator.iterate(3 over 2)(f => one + (one + f).reciprocal)
 
   lazy val ans = expansions.take(1000).count {
     case Fraction(n, d) => n.toString.length > d.toString.length

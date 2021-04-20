@@ -1,4 +1,4 @@
-import fractions.Fraction
+import fractions.over
 
 @main def p033(): Unit = {
 
@@ -9,7 +9,7 @@ import fractions.Fraction
       // `replaceFirst` is fine since these are two-digit numbers
       val n = s"$num".replaceFirst(digit, "").toInt
       val d = s"$den".replaceFirst(digit, "").toInt
-      Fraction(n,d) == Fraction(num, den)
+      (n over d) == (num over den)
     }
   }
 
@@ -21,7 +21,7 @@ import fractions.Fraction
       coprime = gcf == 1
       trivial = gcf % 10 == 0
       if !(coprime || trivial) && curious(n, d)
-    } yield Fraction(n, d)
+    } yield n over d
   }
 
   val ans = fractions.product.denominator

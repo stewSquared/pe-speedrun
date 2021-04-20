@@ -1,3 +1,5 @@
+import fractions.over
+
 @main def p070(): Unit = {
   val limit = 10_000_000
 
@@ -9,10 +11,9 @@
     n = p * q
     phi = (p - 1) * (q - 1)
     if n.toString.sorted == phi.toString.sorted
-  } yield (n, phi)
+  } yield n over phi
 
-  val ans = candidates.minBy(_.toDouble / _)
+  val ans = candidates.min.numerator
 
   println(ans)
-  println(ans._1)
 }
