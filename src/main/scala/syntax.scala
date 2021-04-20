@@ -1,9 +1,8 @@
-package object syntax {
+package syntax
 
-  implicit class IntExtensions(n: Int) {
-    import algs.factorial
+import algs.factorial
 
-    def choose(k: Int): BigInt =
-      factorial(n) / (factorial(k) * factorial(n - k))
-  }
+extension (n: Int) {
+  infix def choose(k: Int): BigInt =
+    factorial(n) / (factorial(k) * factorial(n - k))
 }
