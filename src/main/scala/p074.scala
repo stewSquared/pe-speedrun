@@ -1,5 +1,7 @@
 @main def p074(): Unit = {
 
+  // TODO: 40s. Optimize with memo?
+
   def factorialDigitSum(n: BigInt): BigInt = {
     n.toString.map(d => algs.factorial(d.asDigit)).sum
   }
