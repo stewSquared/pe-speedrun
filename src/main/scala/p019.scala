@@ -24,7 +24,7 @@
   }
 
   def firstDays = LazyList
-    .iterate((1, 1, 1900))(Function.tupled(next _))
+    .iterate((1, 1, 1900))(next)
 
   val ans = firstDays
     .dropWhile { case (_, _, year) => year < 1901 }

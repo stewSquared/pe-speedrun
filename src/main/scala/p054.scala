@@ -62,7 +62,7 @@ import scala.math.Ordering.Implicits.seqOrdering
   }
 
   given Ordering[Seq[Card]] = Ordering.by[Seq[Card], (HandRank, Seq[Rank])] { cards =>
-    import HandRank._
+    import HandRank.*
 
     val ranks = cards.map(_.rank)
 

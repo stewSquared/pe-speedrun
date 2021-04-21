@@ -1,4 +1,4 @@
-import syntax._
+import syntax.choose
 
 @main def p015(): Unit = {
 

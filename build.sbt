@@ -7,5 +7,6 @@ ThisBuild / organizationName := "example"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "Project Euler Speedrun"
+    name := "Project Euler Speedrun",
+    scalacOptions ++= List("-source", "future")
   )

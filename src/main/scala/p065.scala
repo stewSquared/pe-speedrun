@@ -1,5 +1,5 @@
 import fractions.{Fraction, over}
-import math.Fractional.Implicits._
+import math.Fractional.Implicits.given
 
 @main def p065(): Unit = {
 

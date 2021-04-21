@@ -1,5 +1,5 @@
 import math.sqrt
-import math.Fractional.Implicits._
+import math.Fractional.Implicits.given
 import BigDecimal.defaultMathContext as mc
 
 import fractions.{Fraction, over}
@@ -8,7 +8,7 @@ import fractions.{Fraction, over}
   case class State(num: Int, radical: Int, offset: Int)
 
   def next(state: State): (Int, State) = {
-    import state._
+    import state.*
 
     val nextNum = (radical - offset*offset) / num
 
